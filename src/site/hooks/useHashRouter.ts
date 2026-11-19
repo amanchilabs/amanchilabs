@@ -1,17 +1,37 @@
 import { useCallback, useEffect, useState } from 'react'
 
-export type PanelId = 'overview' | 'products' | 'wealth' | 'derma' | 'principles' | 'contact'
+export type PanelId =
+  | 'overview'
+  | 'products'
+  | 'derma'
+  | 'llc-tax'
+  | 'interview'
+  | 'fieldtally'
+  | 'principles'
+  | 'contact'
 export type OverviewSection = 'vision' | 'why' | 'approach'
 type Route = { activePanel: PanelId; overviewSection: OverviewSection | null }
 
-const VALID_PANELS: readonly PanelId[] = ['overview', 'products', 'wealth', 'derma', 'principles', 'contact']
+const VALID_PANELS: readonly PanelId[] = [
+  'overview',
+  'products',
+  'derma',
+  'llc-tax',
+  'interview',
+  'fieldtally',
+  'principles',
+  'contact',
+]
 
 function parseRouteFromHash(hash: string): Route {
   const raw = hash.replace(/^#/, '')
   if (raw === 'overview/vision' || raw === 'overview/why' || raw === 'overview/approach') {
     return { activePanel: 'overview', overviewSection: raw.split('/')[1] as OverviewSection }
   }
-  return { activePanel: VALID_PANELS.includes(raw as PanelId) ? raw as PanelId : 'overview', overviewSection: null }
+  if (raw === 'wealth') {
+    return { activePanel: 'products', overviewSection: null }
+  }
+  return { activePanel: VALID_PANELS.includes(raw as PanelId) ? (raw as PanelId) : 'overview', overviewSection: null }
 }
 
 export function useHashRouter(): Route & { navigate: (panel: PanelId) => void } {

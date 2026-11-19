@@ -7,8 +7,10 @@ import './MobileNav.css'
 type Props = { activePanel: PanelId; navigate: (panel: PanelId) => void }
 
 const NAV_ITEMS: { id: PanelId; label: string }[] = [
-  { id: 'wealth', label: 'WealthPrivate' },
   { id: 'derma', label: 'DermaPrivate' },
+  { id: 'llc-tax', label: 'LLCBookKeepingTaxReturn' },
+  { id: 'interview', label: 'InterviewPrivate' },
+  { id: 'fieldtally', label: 'FieldTally' },
 ]
 
 export function MobileNav({ activePanel, navigate }: Props) {
