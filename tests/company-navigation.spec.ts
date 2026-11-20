@@ -148,7 +148,7 @@ test('testing status, dark apps, external link and contacts are correct', async 
     await expect(page.getByRole('navigation', { name: 'Company sections' }).getByRole('link', { name: 'Products', exact: true })).not.toHaveAttribute('aria-current')
   }
   await page.goto('/#derma')
-  await expect(page.getByRole('link', { name: 'Explore DermaPrivate', exact: true })).toHaveAttribute('href', 'https://dermaprivate-website.onrender.com/index.html')
+  await expect(page.getByRole('link', { name: 'Explore DermaPrivate', exact: true })).toHaveAttribute('href', 'https://www.dermaprivate.app/')
   await expect(page.getByRole('link', { name: 'Explore DermaPrivate', exact: true })).toHaveAttribute('rel', 'noopener noreferrer')
   await page.goto('/#llc-tax')
   await expect(page.getByRole('link', { name: 'Get in touch about LLCBookKeepingTaxReturn' })).toHaveAttribute('href', 'mailto:founder@amanchilabs.com?subject=LLCBookKeepingTaxReturn%20inquiry')
