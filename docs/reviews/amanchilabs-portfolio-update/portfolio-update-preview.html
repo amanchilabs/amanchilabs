@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanchi Labs — Portfolio Update Preview (3 Applications)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================================================
+       AMANCHI LABS — REFINED CONCEPT A: PORTFOLIO EXPANSION MOCKUP
+       Three Products: LLCBookKeepingTaxReturn, DermaPrivate, Camping-Tally
+       ========================================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Brand Color System */
+      --color-canvas:       #FAFAF8;
+      --color-surface:      #FFFFFF;
+      --color-ink-primary:  #0F172A;
+      --color-ink-muted:    #475569;
+      --color-ink-subtle:   #64748B;
+      --color-border:       #E2E8F0;
+      --color-border-hover: #CBD5E1;
+      --color-forest:       #1E3A2F;
+      --color-teal:         #236861;
+      --color-sage:         #3D6B50;
+      --color-ice-blue:     #0284C7;
+      --color-amber:        #B45309;
+      --color-amber-bg:     #FEF3C7;
+      --color-blue-bg:      #F0F9FF;
+      --color-green-bg:     #F0FDF4;
+
+      /* Typographic Families */
+      --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono:    'DM Mono', ui-monospace, monospace;
+
+      /* Fluid Typographic Scale */
+      --text-hero:       clamp(36px, 3.2vw, 56px);
+      --text-section-h2: clamp(26px, 2.2vw, 38px);
+      --text-card-h3:    clamp(20px, 1.5vw, 26px);
+      --text-body-lead:  clamp(17px, 1.1vw, 19px);
+      --text-body:       clamp(15px, 0.95vw, 16.5px);
+      --text-nav:        clamp(14px, 0.88vw, 15.5px);
+      --text-badge:      clamp(12px, 0.75vw, 13px);
+      --text-button:     clamp(14.5px, 0.9vw, 16px);
+
+      /* Motion */
+      --duration-hover: 150ms;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--color-canvas);
+      color: var(--color-ink-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Top Preview Control Bar (for reviewer view switching) */
+    .preview-control-bar {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 10px clamp(16px, 3vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      font-family: var(--font-mono);
+      border-bottom: 1px solid #1E293B;
+    }
+
+    .preview-badge {
+      background: var(--color-teal);
+      color: #FFFFFF;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .preview-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .preview-btn {
+      background: #1E293B;
+      color: #CBD5E1;
+      border: 1px solid #334155;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      transition: all var(--duration-hover) ease;
+    }
+
+    .preview-btn:hover {
+      background: #334155;
+      color: #FFFFFF;
+    }
+
+    .preview-btn.active {
+      background: var(--color-forest);
+      color: #FFFFFF;
+      border-color: #3D6B50;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       PERSISTENT STUDIO HEADER
+       ========================================================================== */
+    .studio-header {
+      width: 100%;
+      height: 78px;
+      padding: 0 clamp(20px, 3vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .studio-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .studio-brand-logo {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .studio-nav-dock {
+      display: flex;
+      align-items: center;
+      background: var(--color-canvas);
+      padding: 5px;
+      border-radius: 9999px;
+      border: 1px solid var(--color-border);
+    }
+
+    .studio-nav-btn {
+      background: transparent;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: var(--text-nav);
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      cursor: pointer;
+      transition: all var(--duration-hover) ease;
+      text-decoration: none;
+    }
+
+    .studio-nav-btn:hover {
+      color: var(--color-ink-primary);
+    }
+
+    .studio-nav-btn.active {
+      background: #FFFFFF;
+      color: var(--color-ink-primary);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+      font-weight: 700;
+    }
+
+    .studio-header-meta {
+      display: flex;
+      align-items: center;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      font-family: var(--font-mono);
+      font-size: var(--text-badge);
+      font-weight: 500;
+      color: var(--color-forest);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #16A34A;
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+    }
+
+    /* ==========================================================================
+       40/60 ASYMMETRIC GRID SHELL
+       ========================================================================== */
+    .studio-viewport-grid {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      width: 100%;
+      min-height: calc(100vh - 78px - 45px);
+    }
+
+    /* Left Narrative Column (40%) */
+    .col-narrative {
+      background: var(--color-canvas);
+      padding: clamp(32px, 3.5vw, 64px) clamp(24px, 3vw, 56px);
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .manifesto-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-forest);
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .manifesto-h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--color-ink-primary);
+      margin-bottom: 24px;
+    }
+
+    .manifesto-h1 span {
+      color: var(--color-forest);
+    }
+
+    .manifesto-copy {
+      font-size: var(--text-body-lead);
+      line-height: 1.6;
+      color: var(--color-ink-muted);
+      margin-bottom: 28px;
+      max-width: 52ch;
+    }
+
+    .promise-panel {
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+
+    .promise-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-ink-subtle);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .promise-statement {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 1.2vw, 20px);
+      font-weight: 700;
+      color: var(--color-forest);
+      letter-spacing: -0.01em;
+    }
+
+    .architecture-distinction-box {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--color-ink-muted);
+    }
+
+    .architecture-distinction-box strong {
+      color: var(--color-ink-primary);
+      display: block;
+      font-family: var(--font-display);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .narrative-footer {
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--color-ink-subtle);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Right Dynamic Canvas (60%) */
+    .col-dynamic {
+      background: #FFFFFF;
+      padding: clamp(32px, 3.5vw, 64px) clamp(24px, 3.2vw, 60px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Section Subnav inside dynamic column */
+    .dynamic-subnav {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--color-border);
+      overflow-x: auto;
+    }
+
+    .dynamic-subnav-btn {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      cursor: pointer;
+      transition: all var(--duration-hover) ease;
+      white-space: nowrap;
+    }
+
+    .dynamic-subnav-btn:hover {
+      border-color: var(--color-ink-primary);
+      color: var(--color-ink-primary);
+    }
+
+    .dynamic-subnav-btn.active {
+      background: var(--color-forest);
+      color: #FFFFFF;
+      border-color: var(--color-forest);
+    }
+
+    /* Product Cards & Grids */
+    .products-header-block {
+      margin-bottom: 32px;
+    }
+
+    .category-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-teal);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-section-h2);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-ink-primary);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: var(--text-body);
+      color: var(--color-ink-muted);
+      max-width: 60ch;
+      line-height: 1.6;
+    }
+
+    /* 3-Product Grid */
+    .three-products-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .product-preview-card {
+      background: var(--color-canvas);
+      border: 1.5px solid var(--color-border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      transition: all var(--duration-hover) ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-preview-card:hover {
+      border-color: var(--color-border-hover);
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .product-preview-card.biz { border-left: 5px solid var(--color-forest); }
+    .product-preview-card.skincare { border-left: 5px solid var(--color-sage); }
+    .product-preview-card.camping { border-left: 5px solid var(--color-ice-blue); }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .card-category-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: var(--color-ink-subtle);
+    }
+
+    .card-status-chip {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    .card-status-chip.dev {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    .card-status-chip.test {
+      background: #DCFCE7;
+      color: #166534;
+      border: 1px solid #BBF7D0;
+    }
+
+    .card-product-title {
+      font-family: var(--font-display);
+      font-size: var(--text-card-h3);
+      font-weight: 800;
+      color: var(--color-ink-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-product-desc {
+      font-size: var(--text-body);
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 64ch;
+    }
+
+    .card-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--color-forest);
+      text-decoration: none;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+      transition: color var(--duration-hover) ease;
+    }
+
+    .card-action-btn:hover {
+      color: var(--color-ink-primary);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       INDIVIDUAL PRODUCT DETAIL VIEWS
+       ========================================================================== */
+    .detail-view-container {
+      display: none;
+    }
+
+    .detail-view-container.active {
+      display: block;
+      animation: fadeIn 200ms ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .detail-breadcrumb-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .detail-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-ink-subtle);
+      font-weight: 600;
+    }
+
+    .detail-back-link {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      text-decoration: underline;
+    }
+
+    .detail-headline {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.2vw, 34px);
+      font-weight: 800;
+      color: var(--color-ink-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .detail-category-tag {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-forest);
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .detail-lead {
+      font-size: var(--text-body-lead);
+      color: var(--color-ink-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      max-width: 65ch;
+    }
+
+    .detail-paragraph {
+      font-size: var(--text-body);
+      color: var(--color-ink-muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 65ch;
+    }
+
+    /* Core Capabilities Grid */
+    .capabilities-section-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-ink-primary);
+      margin-bottom: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .capability-card {
+      background: var(--color-canvas);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .capability-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+      margin-bottom: 6px;
+    }
+
+    .capability-card p {
+      font-size: 13.5px;
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    .detail-callout-box {
+      background: #F8FAFC;
+      border: 1.5px solid var(--color-border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .detail-callout-text {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-ink-primary);
+    }
+
+    .btn-action-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-forest);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background var(--duration-hover) ease;
+    }
+
+    .btn-action-primary:hover {
+      background: var(--color-ink-primary);
+    }
+
+    .btn-action-primary:focus-visible {
+      outline: 2px solid var(--color-forest);
+      outline-offset: 2px;
+    }
+
+    .detail-disclaimer {
+      font-size: 13px;
+      color: var(--color-ink-subtle);
+      line-height: 1.6;
+      border-top: 1px solid var(--color-border);
+      padding-top: 16px;
+      margin-top: 24px;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADAPTATIONS
+       ========================================================================== */
+    @media (max-width: 1023px) {
+      .studio-viewport-grid {
+        grid-template-columns: 1fr;
+      }
+      .col-narrative {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding: 32px 20px;
+      }
+      .col-dynamic {
+        padding: 32px 20px;
+      }
+      .studio-header {
+        height: 64px;
+        padding: 0 16px;
+      }
+      .studio-nav-dock {
+        max-width: calc(100vw - 120px);
+        overflow-x: auto;
+      }
+      .capabilities-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Preview Control Bar -->
+  <div class="preview-control-bar">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span class="preview-badge">CONCEPT REVIEW</span>
+      <span>Amanchi Labs 3-Product Portfolio Update (Proposed Mockup)</span>
+    </div>
+    <div class="preview-controls">
+      <span>View:</span>
+      <button class="preview-btn active" onclick="showView('products')">1. Products Overview</button>
+      <button class="preview-btn" onclick="showView('llc')">2. LLCBookKeepingTaxReturn</button>
+      <button class="preview-btn" onclick="showView('derma')">3. DermaPrivate</button>
+      <button class="preview-btn" onclick="showView('camping')">4. Camping-Tally</button>
+    </div>
+  </div>
+
+  <!-- Persistent Full-Width Studio Header -->
+  <header class="studio-header">
+    <a href="#products" class="studio-brand-link" onclick="showView('products')">
+      <img src="/brand/logo-header.png" onerror="this.onerror=null; this.src='../../public/brand/logo-header.png'" alt="Amanchi Labs" class="studio-brand-logo" />
+    </a>
+
+    <!-- Persistent Navigation Dock -->
+    <nav class="studio-nav-dock" aria-label="Studio Navigation">
+      <button class="studio-nav-btn" onclick="showView('products')">Our Vision</button>
+      <button class="studio-nav-btn" onclick="showView('products')">Why It Matters</button>
+      <button class="studio-nav-btn" onclick="showView('products')">Our Approach</button>
+      <button class="studio-nav-btn active" onclick="showView('products')">Products (3)</button>
+      <button class="studio-nav-btn" onclick="showView('products')">Contact</button>
+    </nav>
+
+    <div class="studio-header-meta">
+      <span class="status-badge">
+        <span class="status-dot"></span>
+        <span>Private by Design · Local by Default</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Full-Width Asymmetric Responsive Grid -->
+  <main class="studio-viewport-grid">
+    
+    <!-- Left Narrative Column (40%) -->
+    <aside class="col-narrative">
+      <div>
+        <span class="manifesto-eyebrow">Studio Manifesto</span>
+        <h1 class="manifesto-h1">
+          Private by Design.<br />
+          Local by Default.<br />
+          <span>AI by Choice.</span>
+        </h1>
+        <p class="manifesto-copy">
+          Your life and your business are personal. Your technology should respect that. We build purposeful applications that put users in control of their data, whether through on-device personal processing or private group collaboration.
+        </p>
+
+        <div class="promise-panel">
+          <span class="promise-label">Customer Promise</span>
+          <div class="promise-statement">Your Data. Your Device. Your Control.</div>
+        </div>
+
+        <div class="architecture-distinction-box">
+          <strong>Architectural Integrity Principle</strong>
+          Personal applications (DermaPrivate) and private business intelligence (LLCBookKeepingTaxReturn) prioritize local-first on-device processing. Collaborative group platforms (Camping-Tally) require shared services and authentication, engineered with strict access controls and zero data commercialization.
+        </div>
+      </div>
+
+      <footer class="narrative-footer">
+        <span>&copy; 2026 Amanchi Labs</span>
+        <span>Independent Technology Studio</span>
+      </footer>
+    </aside>
+
+    <!-- Right Dynamic Canvas (60%) -->
+    <section class="col-dynamic">
+
+      <!-- View Switcher Tabs inside the canvas -->
+      <nav class="dynamic-subnav" aria-label="Portfolio Subviews">
+        <button class="dynamic-subnav-btn active" id="subnav-products" onclick="showView('products')">All Products</button>
+        <button class="dynamic-subnav-btn" id="subnav-llc" onclick="showView('llc')">LLCBookKeepingTaxReturn</button>
+        <button class="dynamic-subnav-btn" id="subnav-derma" onclick="showView('derma')">DermaPrivate</button>
+        <button class="dynamic-subnav-btn" id="subnav-camping" onclick="showView('camping')">Camping-Tally</button>
+      </nav>
+
+      <!-- ==================================================================
+           VIEW 1: PRODUCTS OVERVIEW (3 BALANCED CARDS)
+           ================================================================== -->
+      <div id="view-products" class="detail-view-container active">
+        <div class="products-header-block">
+          <span class="category-eyebrow">OUR APPLICATIONS</span>
+          <h2 class="section-title">Thoughtful technology for the things that matter.</h2>
+          <p class="section-subtitle">
+            Intelligent applications designed around clarity, control, and purposeful technology.
+          </p>
+        </div>
+
+        <div class="three-products-grid">
+          
+          <!-- Card 1: LLCBookKeepingTaxReturn -->
+          <article class="product-preview-card biz">
+            <div>
+              <div class="card-top-row">
+                <span class="card-category-label">Business Finance &amp; Tax Readiness</span>
+                <span class="card-status-chip dev">In Development</span>
+              </div>
+              <h3 class="card-product-title">LLCBookKeepingTaxReturn</h3>
+              <p class="card-product-desc">
+                Bookkeeping, member ownership, financial reporting, and tax preparation support for small businesses and multi-member LLCs.
+              </p>
+            </div>
+            <div>
+              <button class="card-action-btn" onclick="showView('llc')">
+                Discover LLCBookKeepingTaxReturn &rarr;
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2: DermaPrivate -->
+          <article class="product-preview-card skincare">
+            <div>
+              <div class="card-top-row">
+                <span class="card-category-label">Personal Skincare Intelligence</span>
+                <span class="card-status-chip test">In Testing</span>
+              </div>
+              <h3 class="card-product-title">DermaPrivate</h3>
+              <p class="card-product-desc">
+                Understand your skincare products, build personalized routines, and explore ingredient-aware insights with privacy-first intelligence.
+              </p>
+            </div>
+            <div>
+              <button class="card-action-btn" onclick="showView('derma')">
+                Discover DermaPrivate &rarr;
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3: Camping-Tally -->
+          <article class="product-preview-card camping">
+            <div>
+              <div class="card-top-row">
+                <span class="card-category-label">Group Camping &amp; Trip Coordination</span>
+                <span class="card-status-chip dev">In Development</span>
+              </div>
+              <h3 class="card-product-title">Camping-Tally</h3>
+              <p class="card-product-desc">
+                Plan camping trips together. Coordinate attendance, cabin reservations, carpools, responsibilities, and shared expenses in one organized platform.
+              </p>
+            </div>
+            <div>
+              <button class="card-action-btn" onclick="showView('camping')">
+                Discover Camping-Tally &rarr;
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           VIEW 2: LLCBOOKKEEPINGTAXRETURN DETAIL VIEW
+           ================================================================== -->
+      <div id="view-llc" class="detail-view-container">
+        <div class="detail-breadcrumb-bar">
+          <span class="detail-breadcrumb">LLCBOOKKEEPINGTAXRETURN / IN DEVELOPMENT</span>
+          <button class="detail-back-link" onclick="showView('products')">&larr; Back to Products</button>
+        </div>
+
+        <h2 class="detail-headline">Your business finances. Organized. Understood. Tax-ready.</h2>
+        <span class="detail-category-tag">BUSINESS BOOKKEEPING &amp; TAX INTELLIGENCE</span>
+
+        <p class="detail-lead">
+          A comprehensive bookkeeping and tax-readiness application designed for LLC owners who want greater control over their financial records.
+        </p>
+        <p class="detail-paragraph">
+          Track business transactions, manage member ownership and contributions, understand financial performance, and prepare organized information for tax reporting.
+        </p>
+
+        <h3 class="capabilities-section-title">Core capabilities</h3>
+        <div class="capabilities-grid">
+          <div class="capability-card">
+            <strong>Business Bookkeeping</strong>
+            <p>Income, expenses, transaction categorization, and financial records.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Member Ownership &amp; Capital</strong>
+            <p>Track member ownership percentages, contributions, distributions, and capital accounts.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Financial Reporting</strong>
+            <p>Profit and loss, financial summaries, and exportable business records.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Tax Readiness</strong>
+            <p>Designed to support Schedule C and multi-member LLC partnership reporting workflows, including Form 1065 and Schedule K-1 preparation.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Ownership &amp; Allocation Tracking</strong>
+            <p>Planned support for ownership changes, partner allocations, tax basis, and at-risk calculations.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Privacy-First Architecture</strong>
+            <p>Designed to keep business financial information under the owner's control, with local-first processing and optional intelligence features.</p>
+          </div>
+        </div>
+
+        <div class="detail-callout-box">
+          <span class="detail-callout-text">Built for business owners who want clarity and control.</span>
+          <a href="mailto:founder@amanchilabs.com?subject=Inquiry%20regarding%20LLCBookKeepingTaxReturn" class="btn-action-primary">
+            Get in touch about LLCBookKeepingTaxReturn
+          </a>
+        </div>
+
+        <p class="detail-disclaimer">
+          In development. Tax features and calculations require validation before use for actual filings. The application is not a substitute for professional tax advice.
+        </p>
+      </div>
+
+      <!-- ==================================================================
+           VIEW 3: DERMAPRIVATE DETAIL VIEW
+           ================================================================== -->
+      <div id="view-derma" class="detail-view-container">
+        <div class="detail-breadcrumb-bar">
+          <span class="detail-breadcrumb">DERMAPRIVATE / IN TESTING</span>
+          <button class="detail-back-link" onclick="showView('products')">&larr; Back to Products</button>
+        </div>
+
+        <h2 class="detail-headline">Smarter skincare. Your routine. Your control.</h2>
+        <span class="detail-category-tag">PERSONAL SKINCARE INTELLIGENCE</span>
+
+        <p class="detail-lead">
+          A privacy-first skincare companion designed to help you understand the products you use, organize your daily routines, and make more informed skincare decisions.
+        </p>
+        <p class="detail-paragraph">
+          Bring your products and routines together in one personal experience, with optional AI assistance when you want another perspective.
+        </p>
+
+        <h3 class="capabilities-section-title">Core capabilities</h3>
+        <div class="capabilities-grid">
+          <div class="capability-card">
+            <strong>Personalized Routine Planning</strong>
+            <p>Organize morning and evening skincare routines with clear, manageable steps.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Product &amp; Ingredient Awareness</strong>
+            <p>Review skincare products and available ingredient information to better understand your routine.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Ingredient Compatibility Insights</strong>
+            <p>Rule-based observations help identify potential ingredient conflicts and routine considerations.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Routine Tracking</strong>
+            <p>Keep track of your skincare activities and develop more consistent habits.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Optional AI Assistance</strong>
+            <p>Explore AI-assisted suggestions when you choose. AI recommendations are proposals, not automatic changes to your routine.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Privacy-First Experience</strong>
+            <p>Designed around local-first personal skincare management and user-controlled optional AI interactions.</p>
+          </div>
+        </div>
+
+        <div class="detail-callout-box">
+          <span class="detail-callout-text">Your skincare journey deserves a more personal approach.</span>
+          <a href="https://www.dermaprivate.app/" target="_blank" rel="noreferrer" class="btn-action-primary">
+            Explore DermaPrivate &rarr;
+          </a>
+        </div>
+
+        <p class="detail-disclaimer">
+          In testing. Features may change before release. Ingredient observations and AI suggestions are informational and do not replace professional medical advice.
+        </p>
+      </div>
+
+      <!-- ==================================================================
+           VIEW 4: CAMPING-TALLY DETAIL VIEW
+           ================================================================== -->
+      <div id="view-camping" class="detail-view-container">
+        <div class="detail-breadcrumb-bar">
+          <span class="detail-breadcrumb">CAMPING-TALLY / IN DEVELOPMENT</span>
+          <button class="detail-back-link" onclick="showView('products')">&larr; Back to Products</button>
+        </div>
+
+        <h2 class="detail-headline">Better camping trips. Less coordination. More adventure.</h2>
+        <span class="detail-category-tag">GROUP CAMPING &amp; TRIP MANAGEMENT</span>
+
+        <p class="detail-lead">
+          A collaborative camping coordination platform designed to make organizing group trips simpler, more transparent, and less stressful.
+        </p>
+        <p class="detail-paragraph">
+          Bring your group together to plan upcoming trips, manage attendance, coordinate logistics, and keep everyone informed.
+        </p>
+
+        <h3 class="capabilities-section-title">Core capabilities</h3>
+        <div class="capabilities-grid">
+          <div class="capability-card">
+            <strong>Trip Planning &amp; Calendar</strong>
+            <p>Organize upcoming camping trips, destinations, dates, and important milestones.</p>
+          </div>
+          <div class="capability-card">
+            <strong>RSVP &amp; Attendance</strong>
+            <p>Collect member responses, track confirmed participants, manage capacity, and coordinate waitlists.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Cabin &amp; Campsite Coordination</strong>
+            <p>Track reservations, cabin availability, and accommodation arrangements.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Carpools &amp; Travel Logistics</strong>
+            <p>Coordinate transportation, available seats, departure arrangements, and travel responsibilities.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Group Responsibilities</strong>
+            <p>Organize meals, supplies, packing activities, and shared camping duties.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Shared Expenses &amp; Financial Coordination</strong>
+            <p>Support transparent expense tracking, contributions, and trip-related financial coordination as those features become available.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Trip Readiness &amp; Notifications</strong>
+            <p>Highlight important tasks, deadlines, and unresolved planning issues so the group can prepare together.</p>
+          </div>
+          <div class="capability-card">
+            <strong>Private Group Collaboration</strong>
+            <p>Designed for authorized group members, with appropriate access controls for shared trip information.</p>
+          </div>
+        </div>
+
+        <div class="detail-callout-box">
+          <span class="detail-callout-text">Spend less time organizing. Spend more time enjoying the outdoors.</span>
+          <a href="mailto:founder@amanchilabs.com?subject=Inquiry%20regarding%20Camping-Tally" class="btn-action-primary">
+            Get in touch about Camping-Tally &rarr;
+          </a>
+        </div>
+
+        <p class="detail-disclaimer">
+          In development. Availability and individual capabilities depend on the release stage.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    function showView(viewId) {
+      // Hide all views
+      const views = document.querySelectorAll('.detail-view-container');
+      views.forEach(v => v.classList.remove('active'));
+
+      // Show selected view
+      const target = document.getElementById('view-' + viewId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      // Update subnav buttons
+      const subnavBtns = document.querySelectorAll('.dynamic-subnav-btn');
+      subnavBtns.forEach(btn => btn.classList.remove('active'));
+      const activeSubnav = document.getElementById('subnav-' + viewId);
+      if (activeSubnav) activeSubnav.classList.add('active');
+
+      // Update control bar buttons
+      const ctrlBtns = document.querySelectorAll('.preview-btn');
+      ctrlBtns.forEach(btn => btn.classList.remove('active'));
+      const activeIdx = ['products', 'llc', 'derma', 'camping'].indexOf(viewId);
+      if (activeIdx >= 0 && ctrlBtns[activeIdx]) {
+        ctrlBtns[activeIdx].classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

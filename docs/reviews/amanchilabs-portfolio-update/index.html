@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amanchi Labs — 3-Product Portfolio Decision Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0B0F17;
+      color: #E2E8F0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      padding: 32px 24px 64px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 1px solid #1E293B;
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+    p.lead {
+      color: #94A3B8;
+      font-size: 16px;
+      max-width: 80ch;
+      margin-top: 6px;
+    }
+    .meta-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: #4ADE80;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid #1E293B;
+      padding-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #1E293B;
+      color: #94A3B8;
+      border: 1px solid #334155;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+    .tab-btn:hover {
+      background: #334155;
+      color: #FFFFFF;
+    }
+    .tab-btn.active {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #38BDF8;
+    }
+    .gallery-view {
+      display: none;
+    }
+    .gallery-view.active {
+      display: block;
+      animation: fadeIn 200ms ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-comparison-grid {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    .panel {
+      background: #111827;
+      border: 1px solid #1F2937;
+      border-radius: 12px;
+      padding: 20px;
+      overflow: hidden;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .panel-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94A3B8;
+    }
+    .resolution-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .screenshot-frame {
+      border: 1px solid #374151;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+    }
+    .screenshot-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 150ms ease;
+    }
+    .screenshot-frame:hover img {
+      transform: scale(1.01);
+    }
+    .spec-summary-box {
+      background: #111827;
+      border: 1px solid #1F2937;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .spec-summary-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .spec-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .spec-list li {
+      font-size: 14px;
+      color: #94A3B8;
+      padding-left: 20px;
+      position: relative;
+    }
+    .spec-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4ADE80;
+    }
+    .spec-list li strong {
+      color: #E2E8F0;
+    }
+    @media (max-width: 900px) {
+      .card-comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <span class="badge">DECISION GALLERY</span>
+        <h1>Amanchi Labs — 3-Product Portfolio Decision Gallery</h1>
+        <p class="lead">
+          Visual comparison of the updated product portfolio: replacing WealthPrivate with <strong>LLCBookKeepingTaxReturn</strong>, updating <strong>DermaPrivate</strong> customer copy, and introducing <strong>Camping-Tally</strong> for collaborative group coordination.
+        </p>
+      </div>
+      <div class="meta-status">
+        ● 8 Retina Screenshots Ready
+      </div>
+    </header>
+
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchView('overview')">1. Products Overview</button>
+      <button class="tab-btn" onclick="switchView('llc')">2. LLCBookKeepingTaxReturn</button>
+      <button class="tab-btn" onclick="switchView('derma')">3. DermaPrivate</button>
+      <button class="tab-btn" onclick="switchView('camping')">4. Camping-Tally</button>
+    </div>
+
+    <!-- VIEW 1: PRODUCTS OVERVIEW -->
+    <div id="view-overview" class="gallery-view active">
+      <div class="card-comparison-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Desktop View</span>
+            <span class="resolution-tag">1440 × 900 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/01-desktop-1440-products-overview.png" alt="Desktop Products Overview" />
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Mobile View</span>
+            <span class="resolution-tag">390 × 844 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/05-mobile-390-products-overview.png" alt="Mobile Products Overview" />
+          </div>
+        </div>
+      </div>
+      <div class="spec-summary-box">
+        <h3 class="spec-summary-title">Products Overview Highlights</h3>
+        <ul class="spec-list">
+          <li><strong>Three Balanced Showcases:</strong> Equal visual weight for business finance, personal skincare, and group coordination.</li>
+          <li><strong>Customer Benefit Copy:</strong> Simplified, friendly messaging replacing engineering specifications.</li>
+          <li><strong>Distinct Architecture:</strong> Clearly distinguishes local-first apps from collaborative platforms with shared backends.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIEW 2: LLCBOOKKEEPINGTAXRETURN -->
+    <div id="view-llc" class="gallery-view">
+      <div class="card-comparison-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Desktop View</span>
+            <span class="resolution-tag">1440 × 900 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/02-desktop-1440-llcbookkeepingtaxreturn-detail.png" alt="Desktop LLCBookKeepingTaxReturn" />
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Mobile View</span>
+            <span class="resolution-tag">390 × 844 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/06-mobile-390-llcbookkeepingtaxreturn-detail.png" alt="Mobile LLCBookKeepingTaxReturn" />
+          </div>
+        </div>
+      </div>
+      <div class="spec-summary-box">
+        <h3 class="spec-summary-title">LLCBookKeepingTaxReturn Highlights</h3>
+        <ul class="spec-list">
+          <li><strong>Status:</strong> In Development (Business Finance & Tax Readiness).</li>
+          <li><strong>6 Core Capabilities:</strong> Bookkeeping, member capital accounts, financial reporting, Form 1065/K-1 tax readiness, partner allocation tracking, and local-first privacy.</li>
+          <li><strong>Honest Roadmap Disclaimer:</strong> Explicitly states tax calculations are roadmap features requiring validation and not tax advice.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIEW 3: DERMAPRIVATE -->
+    <div id="view-derma" class="gallery-view">
+      <div class="card-comparison-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Desktop View</span>
+            <span class="resolution-tag">1440 × 900 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/03-desktop-1440-dermaprivate-detail.png" alt="Desktop DermaPrivate" />
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Mobile View</span>
+            <span class="resolution-tag">390 × 844 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/07-mobile-390-dermaprivate-detail.png" alt="Mobile DermaPrivate" />
+          </div>
+        </div>
+      </div>
+      <div class="spec-summary-box">
+        <h3 class="spec-summary-title">DermaPrivate Highlights</h3>
+        <ul class="spec-list">
+          <li><strong>Status:</strong> In Testing (Personal Skincare Intelligence).</li>
+          <li><strong>Customer Benefit Messaging:</strong> Routine planning, product/ingredient awareness, compatibility insights, tracking, and user-controlled AI proposals.</li>
+          <li><strong>Verified External Link:</strong> Retains active direct link to <code>https://www.dermaprivate.app/</code>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIEW 4: CAMPING-TALLY -->
+    <div id="view-camping" class="gallery-view">
+      <div class="card-comparison-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Desktop View</span>
+            <span class="resolution-tag">1440 × 900 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/04-desktop-1440-camping-tally-detail.png" alt="Desktop Camping-Tally" />
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Mobile View</span>
+            <span class="resolution-tag">390 × 844 (Retina 2x)</span>
+          </div>
+          <div class="screenshot-frame">
+            <img src="img/08-mobile-390-camping-tally-detail.png" alt="Mobile Camping-Tally" />
+          </div>
+        </div>
+      </div>
+      <div class="spec-summary-box">
+        <h3 class="spec-summary-title">Camping-Tally Highlights</h3>
+        <ul class="spec-list">
+          <li><strong>Status:</strong> In Development (Group Camping & Trip Coordination).</li>
+          <li><strong>8 Core Capabilities:</strong> Trip calendar, RSVP/attendance, cabin/site reservations, carpool logistics, group duties, shared expenses, readiness alerts, and authorized private collaboration.</li>
+          <li><strong>Architectural Distinction:</strong> Honest disclosure that collaborative group coordination uses authorized shared services rather than pure on-device storage.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchView(viewId) {
+      document.querySelectorAll('.gallery-view').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      const target = document.getElementById('view-' + viewId);
+      if (target) target.classList.add('active');
+      
+      const tabIdx = ['overview', 'llc', 'derma', 'camping'].indexOf(viewId);
+      const btns = document.querySelectorAll('.tab-btn');
+      if (tabIdx >= 0 && btns[tabIdx]) btns[tabIdx].classList.add('active');
+    }
+  </script>
+</body>
+</html>
