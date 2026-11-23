@@ -388,7 +388,7 @@ export function CompanyView({ activePanel, overviewSection }: Props) {
       </aside>
 
       {/* Right Dynamic Canvas (Changes in Place without Layout Shifts, 60% Width) */}
-      <section className="col-dynamic" aria-live="polite">
+      <section className="col-dynamic" aria-label="Dynamic Content View">
         <header className="company-view__introduction">
           <nav
             className="company-view__navigation"

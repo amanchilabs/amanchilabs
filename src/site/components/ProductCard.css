@@ -79,6 +79,11 @@
   border-color: var(--color-ink-primary);
 }
 
+.btn-action:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 2px;
+}
+
 .btn-action--primary {
   background: var(--color-forest);
   color: #FFFFFF;
@@ -103,6 +108,11 @@
 
 .return-link:hover {
   color: var(--color-ink-primary);
+}
+
+.return-link:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 2px;
 }
 
 /* Showcase Card */

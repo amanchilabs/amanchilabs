@@ -413,15 +413,6 @@
 }
 
 /* Responsive Adaptations */
-@container (max-width: 650px) {
-  .vision-bento,
-  .why-pillars-grid,
-  .company-view__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Responsive Adaptations */
 @media (max-width: 1023px) {
   .studio-viewport-grid {
     grid-template-columns: 1fr;

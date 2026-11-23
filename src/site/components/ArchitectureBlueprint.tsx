@@ -27,7 +27,7 @@ export function ArchitectureBlueprint() {
         </div>
 
         {/* Wire 2 (Gated Conduit) */}
-        <div className="flow-wire dashed" aria-hidden="true">&dash;&gt;</div>
+        <div className="flow-wire dashed" aria-hidden="true">&#x21E2;</div>
 
         {/* Node 3: External AI */}
         <div className="blueprint-node node-external">
