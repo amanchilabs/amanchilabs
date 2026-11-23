@@ -13,8 +13,9 @@ type Props = {
 
 // Approved public portfolio
 const APPROVED_APPLICATIONS: { id: PanelId; label: string }[] = [
+  { id: 'llc-tax', label: 'LLCBookKeepingTaxReturn' },
   { id: 'derma', label: 'DermaPrivate' },
-  { id: 'wealth', label: 'WealthPrivate' },
+  { id: 'camping', label: 'Camping-Tally' },
 ]
 
 export function MobileNav({ activePanel, navigate, open, setOpen }: Props) {

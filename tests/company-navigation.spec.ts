@@ -7,6 +7,7 @@ const states = [
   ['overview', 'overview'], ['overview/vision', 'overview'], ['overview/why', 'why'],
   ['overview/approach', 'approach'], ['principles', 'principles'], ['products', 'products'],
   ['contact', 'contact'], ['derma', 'derma'], ['llc-tax', 'llc-tax'],
+  ['camping', 'camping'], ['wealth', 'wealth'],
   ['interview', 'interview'], ['fieldtally', 'fieldtally'],
 ] as const
 
@@ -38,7 +39,9 @@ test('sequential actions, products and history stay in the shared layout', async
     ['Explore our products', 'products'],
     ['Discover DermaPrivate', 'derma'],
     ['Back to Products', 'products'],
-    ['Discover WealthPrivate', 'wealth'],
+    ['Discover LLCBookKeepingTaxReturn', 'llc-tax'],
+    ['Back to Products', 'products'],
+    ['Discover Camping-Tally', 'camping'],
     ['Back to Products', 'products'],
     ['Back to Our Vision', 'overview'],
   ]) {
@@ -85,17 +88,18 @@ test('mobile applications drawer traps focus, closes and restores focus', async 
   await toggle.click()
   const dialog = page.getByRole('dialog', { name: 'Navigation menu' })
   await expect(dialog.getByRole('navigation', { name: 'Applications' }).getByRole('link')).toHaveText([
+    'LLCBookKeepingTaxReturn',
     'DermaPrivate',
-    'WealthPrivate',
+    'Camping-Tally',
   ])
   const close = dialog.getByRole('button', { name: 'Close navigation menu' })
   await expect(close).toBeFocused()
   await expect(page.locator('#main-content')).toHaveAttribute('inert', '')
-  await dialog.getByRole('link', { name: 'WealthPrivate', exact: true }).focus()
+  await dialog.getByRole('link', { name: 'Camping-Tally', exact: true }).focus()
   await page.keyboard.press('Tab')
   await expect(dialog.locator('.brand')).toBeFocused()
   await page.keyboard.press('Shift+Tab')
-  await expect(dialog.getByRole('link', { name: 'WealthPrivate', exact: true })).toBeFocused()
+  await expect(dialog.getByRole('link', { name: 'Camping-Tally', exact: true })).toBeFocused()
   await page.keyboard.press('Escape')
   await expect(toggle).toBeFocused()
   await toggle.click()
@@ -134,7 +138,7 @@ test('testing status, external link and contacts are correct', async ({ page }) 
   await page.goto('/#products')
   await expect(page.locator('.company-view__article')).toContainText('IN TESTING')
   await expect(page.locator('.company-view__article')).toContainText('IN DEVELOPMENT')
-  for (const route of ['derma', 'llc-tax', 'interview', 'fieldtally']) {
+  for (const route of ['derma', 'llc-tax', 'camping', 'interview', 'fieldtally']) {
     await page.goto('/#' + route)
     await expect(page.getByRole('navigation', { name: 'Company sections' }).getByRole('link', { name: 'Products', exact: true })).not.toHaveAttribute('aria-current')
   }
@@ -143,6 +147,8 @@ test('testing status, external link and contacts are correct', async ({ page }) 
   await expect(page.getByRole('link', { name: 'Explore DermaPrivate', exact: true })).toHaveAttribute('rel', 'noopener noreferrer')
   await page.goto('/#llc-tax')
   await expect(page.getByRole('link', { name: 'Get in touch about LLCBookKeepingTaxReturn' })).toHaveAttribute('href', 'mailto:founder@amanchilabs.com?subject=LLCBookKeepingTaxReturn%20inquiry')
+  await page.goto('/#camping')
+  await expect(page.getByRole('link', { name: 'Get in touch about Camping-Tally' })).toHaveAttribute('href', 'mailto:founder@amanchilabs.com?subject=Camping-Tally%20inquiry')
   await page.goto('/#interview')
   await expect(page.getByRole('link', { name: 'Get in touch about InterviewPrivate' })).toHaveAttribute('href', 'mailto:founder@amanchilabs.com?subject=InterviewPrivate%20inquiry')
   await page.goto('/#fieldtally')

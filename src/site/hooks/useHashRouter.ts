@@ -10,6 +10,7 @@ export type PanelId =
   | 'wealth'
   | 'derma'
   | 'llc-tax'
+  | 'camping'
   | 'interview'
   | 'fieldtally'
   | 'contact'
@@ -28,6 +29,7 @@ const VALID_PANELS: readonly PanelId[] = [
   'wealth',
   'derma',
   'llc-tax',
+  'camping',
   'interview',
   'fieldtally',
   'contact',
@@ -52,6 +54,12 @@ function parseRouteFromHash(hash: string, currentRoute?: Route): Route {
   }
   if (raw === 'derma') {
     return { activePanel: 'derma', overviewSection: null }
+  }
+  if (raw === 'llc' || raw === 'llc-tax') {
+    return { activePanel: 'llc-tax', overviewSection: null }
+  }
+  if (raw === 'camping' || raw === 'camping-tally') {
+    return { activePanel: 'camping', overviewSection: null }
   }
   if (VALID_PANELS.includes(raw as PanelId)) {
     return { activePanel: raw as PanelId, overviewSection: null }

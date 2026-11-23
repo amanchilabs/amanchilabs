@@ -21,8 +21,16 @@
   border-top: 4px solid var(--color-wealth-vault);
 }
 
+.product-preview-card.card-llc {
+  border-top: 4px solid var(--color-forest);
+}
+
 .product-preview-card.card-derma {
   border-top: 4px solid var(--color-sage);
+}
+
+.product-preview-card.card-camping {
+  border-top: 4px solid var(--color-ice-blue);
 }
 
 .card-meta-tag {
@@ -43,6 +51,8 @@
   color: var(--color-ink-primary);
   margin-bottom: 10px;
   letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .card-desc {
@@ -129,8 +139,16 @@
   border-top: 5px solid var(--color-wealth-vault);
 }
 
+.showcase-card.llc {
+  border-top: 5px solid var(--color-forest);
+}
+
 .showcase-card.derma {
   border-top: 5px solid var(--color-sage);
+}
+
+.showcase-card.camping {
+  border-top: 5px solid var(--color-ice-blue);
 }
 
 .showcase-head-row {
@@ -144,10 +162,12 @@
 
 .showcase-title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 2.2vw, 36px);
+  font-size: clamp(24px, 2.2vw, 36px);
   font-weight: 800;
   color: var(--color-ink-primary);
   letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .showcase-lead {

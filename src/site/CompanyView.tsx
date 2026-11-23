@@ -58,8 +58,9 @@ function ViewContent({ view }: { view: View }) {
 
           {/* Bento Preview Grid for Approved Public Portfolio */}
           <div className="vision-bento" style={{ marginTop: '28px' }}>
-            <ProductCard product="wealth" mode="preview" />
+            <ProductCard product="llc" mode="preview" />
             <ProductCard product="derma" mode="preview" />
+            <ProductCard product="camping" mode="preview" />
           </div>
 
           <div style={{ marginTop: '32px' }}>
@@ -146,43 +147,21 @@ function ViewContent({ view }: { view: View }) {
     case 'products':
       return (
         <>
-          <p className="company-view__eyebrow">PRODUCTS</p>
-          <h2 id="selected-heading" tabIndex={-1}>Personal applications. A shared philosophy.</h2>
+          <p className="company-view__eyebrow">OUR APPLICATIONS</p>
+          <h2 id="selected-heading" tabIndex={-1}>Thoughtful technology for the things that matter.</h2>
           <p className="company-view__copy" style={{ marginBottom: '24px' }}>
-            Intelligent personal applications built on local-first processing, mathematical clarity, and optional AI when you choose.
+            Intelligent applications designed around clarity, control, and purposeful technology.
           </p>
 
-          <div className="product-showcase-container">
-            <div className="dynamic-card">
-              <span className="card-meta-tag" style={{ color: 'var(--color-sage)' }}>
-                ROUTINE INTELLIGENCE &middot; IN TESTING
-              </span>
-              <h3 className="showcase-title">DermaPrivate</h3>
-              <p className="company-view__copy" style={{ marginTop: '8px' }}>
-                Skincare planning, personal routines, and ingredient-aware safety checks.
-              </p>
-              <div style={{ marginTop: '16px' }}>
-                <Action href="#derma">Discover DermaPrivate</Action>
-              </div>
-            </div>
-
-            <div className="dynamic-card">
-              <span className="card-meta-tag" style={{ color: 'var(--color-ice-blue)' }}>
-                FINANCIAL VAULT &middot; IN DEVELOPMENT
-              </span>
-              <h3 className="showcase-title">WealthPrivate</h3>
-              <p className="company-view__copy" style={{ marginTop: '8px' }}>
-                Multi-entity LLC bookkeeping ledger and tax outlook foundation with local encrypted storage.
-              </p>
-              <div style={{ marginTop: '16px' }}>
-                <Action href="#wealth">Discover WealthPrivate</Action>
-              </div>
-            </div>
+          <div className="product-showcase-container" style={{ display: 'grid', gap: '20px' }}>
+            <ProductCard product="llc" mode="preview" />
+            <ProductCard product="derma" mode="preview" />
+            <ProductCard product="camping" mode="preview" />
           </div>
 
           <div className="company-view__products-footer" style={{ marginTop: '32px' }}>
             <p className="company-view__copy company-view__products-footnote">
-              Local-first by design. AI-enabled by choice. Available integrations and data-handling practices vary by product.
+              Personal applications prioritize local-first on-device processing. Collaborative platforms require carefully controlled shared services.
             </p>
             <Action href="#overview">Back to Our Vision</Action>
           </div>
@@ -192,8 +171,8 @@ function ViewContent({ view }: { view: View }) {
     case 'wealth':
       return (
         <>
-          <p className="company-view__eyebrow">WEALTHPRIVATE / IN DEVELOPMENT</p>
-          <h2 id="selected-heading" tabIndex={-1}>Private personal financial intelligence.</h2>
+          <p className="company-view__eyebrow">WEALTHPRIVATE / TRANSITION NOTICE</p>
+          <h2 id="selected-heading" tabIndex={-1}>Portfolio transition &amp; roadmap update.</h2>
           <ProductCard product="wealth" mode="showcase" />
         </>
       )
@@ -202,7 +181,7 @@ function ViewContent({ view }: { view: View }) {
       return (
         <>
           <p className="company-view__eyebrow">DERMAPRIVATE / IN TESTING</p>
-          <h2 id="selected-heading" tabIndex={-1}>Personalized skincare. On your terms.</h2>
+          <h2 id="selected-heading" tabIndex={-1}>Smarter skincare. Your routine. Your control.</h2>
           <ProductCard product="derma" mode="showcase" />
         </>
       )
@@ -247,21 +226,17 @@ function ViewContent({ view }: { view: View }) {
       return (
         <>
           <p className="company-view__eyebrow">LLCBOOKKEEPINGTAXRETURN / IN DEVELOPMENT</p>
-          <h2 id="selected-heading" tabIndex={-1}>Multi-entity bookkeeping. Integrated tax outlook.</h2>
-          <div className="dynamic-card">
-            <p className="company-view__copy">
-              Multi-entity LLC bookkeeping ledger and tax outlook foundation designed for small business owners with local encrypted storage.
-            </p>
-            <p className="company-view__disclosure" style={{ marginTop: '16px' }}>
-              In active development. Tax outlook foundation provides organized record clarity and does not constitute formal tax or legal advice.
-            </p>
-            <div style={{ marginTop: '20px' }}>
-              <Action href="mailto:founder@amanchilabs.com?subject=LLCBookKeepingTaxReturn%20inquiry">
-                Get in touch about LLCBookKeepingTaxReturn
-              </Action>
-              <a href="#products" className="return-link" style={{ marginLeft: '16px' }}>Back to Products</a>
-            </div>
-          </div>
+          <h2 id="selected-heading" tabIndex={-1}>Your business finances. Organized. Understood. Tax-ready.</h2>
+          <ProductCard product="llc" mode="showcase" />
+        </>
+      )
+
+    case 'camping':
+      return (
+        <>
+          <p className="company-view__eyebrow">CAMPING-TALLY / IN DEVELOPMENT</p>
+          <h2 id="selected-heading" tabIndex={-1}>Better camping trips. Less coordination. More adventure.</h2>
+          <ProductCard product="camping" mode="showcase" />
         </>
       )
 
@@ -351,7 +326,7 @@ export function CompanyView({ activePanel, overviewSection }: Props) {
             <span>AI by Choice.</span>
           </h1>
           <p className="manifesto-copy">
-            Your life is personal. Your technology should respect that. We build intelligent personal applications designed around on-device processing, independent everyday use, and optional external AI strictly when you choose to use it.
+            Your life and your business are personal. Your technology should respect that. We build purposeful applications that put users in control of their data, whether through on-device personal processing or private group collaboration.
           </p>
 
           <div className="promise-panel">
@@ -364,19 +339,19 @@ export function CompanyView({ activePanel, overviewSection }: Props) {
               <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
               </svg>
-              <span>On-Device Storage &amp; Processing by Design</span>
+              <span>On-Device Processing for Personal &amp; Business Finance</span>
+            </div>
+            <div className="crypto-badge-item">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>Controlled Shared Services for Group Collaboration</span>
             </div>
             <div className="crypto-badge-item">
               <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
               </svg>
               <span>Optional External AI: User-Initiated by Choice</span>
-            </div>
-            <div className="crypto-badge-item">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span>Independent Everyday Use: No Cloud Account Required</span>
             </div>
           </div>
         </div>
@@ -407,7 +382,7 @@ export function CompanyView({ activePanel, overviewSection }: Props) {
                 key={section.view}
                 href={section.hash}
                 aria-current={view === section.view ? 'location' : undefined}
-                data-parent-active={section.view === 'products' && (view === 'derma' || view === 'wealth') ? '' : undefined}
+                data-parent-active={section.view === 'products' && (view === 'derma' || view === 'llc-tax' || view === 'camping' || view === 'wealth') ? '' : undefined}
               >
                 {section.label}
               </a>
