@@ -4,12 +4,13 @@
 **Date:** November 23, 2026  
 **Agency Team:** Creative Director, Senior Brand Identity Designer, Principal UI/UX Designer, Typography & Visual Systems Expert, Interaction & Motion Designer, Frontend Design Architect, Accessibility Specialist, Conversion & Product Marketing Strategist  
 **Repository Branch:** `feature/ux-transformation-nov23`  
+**Downloads Export Package:** `/Users/veerrajuamanchi/Downloads/Amanchi-Labs-Visual-Decision-Package-2026-11-23`  
 
 ---
 
 ## 1. Review Package Overview
 
-This directory contains the complete multi-disciplinary agency assessment, design research, typography evaluations, three distinct creative concepts, high-fidelity visual mockups, and implementation roadmap for transforming the Amanchi Labs website from a restrained, document-like presentation into an elite, cutting-edge software studio experience.
+This directory contains the complete multi-disciplinary agency assessment, design research, typography evaluations, four distinct creative concepts, high-fidelity visual mockups (16 total), and implementation roadmap for transforming the Amanchi Labs website from a restrained, document-like presentation into an elite, cutting-edge software studio experience.
 
 ```
 docs/reviews/amanchilabs-ux-transformation/
@@ -21,88 +22,78 @@ docs/reviews/amanchilabs-ux-transformation/
 ├── 05-recommended-direction.md          # Phase D: Multi-criteria evaluation & hybrid recommendation
 ├── 06-accessibility-performance-risks.md# Phase E: WCAG 2.2 AA audit & performance constraints
 ├── visual-comparison-gallery.html       # Standalone interactive prototype & concept switcher
-├── capture-mockups.mjs                  # Reproducible Playwright capture script
-└── img/                                 # High-fidelity visual mockups & comparison captures
-    ├── concept-a-1440x900.png           # Concept A Desktop (Swiss Minimalism)
-    ├── concept-a-390x844-mobile.png     # Concept A Mobile (Swiss Minimalism)
-    ├── concept-b-1440x900.png           # Concept B Desktop (Immersive AI Studio)
-    ├── concept-b-390x844-mobile.png     # Concept B Mobile (Immersive AI Studio)
-    ├── concept-c-1440x900.png           # Concept C Desktop (Human-Centered Innovation)
-    ├── concept-c-390x844-mobile.png     # Concept C Mobile (Human-Centered Innovation)
-    └── typography-systems-comparison.png# Side-by-side headline specimen comparison
+├── capture-mockups.mjs                  # Reproducible Playwright capture script (16 mockups)
+└── img/                                 # 16 High-fidelity visual mockups (Retina 2x)
+    ├── 01-concept-a-desktop-homepage-1440x900.png
+    ├── 02-concept-a-mobile-homepage-390x844.png
+    ├── 03-concept-a-desktop-products-1440x900.png
+    ├── 04-concept-a-desktop-approach-1440x900.png
+    ├── 05-concept-b-desktop-homepage-1440x900.png
+    ├── 06-concept-b-mobile-homepage-390x844.png
+    ├── 07-concept-b-desktop-products-1440x900.png
+    ├── 08-concept-b-desktop-approach-1440x900.png
+    ├── 09-concept-c-desktop-homepage-1440x900.png
+    ├── 10-concept-c-mobile-homepage-390x844.png
+    ├── 11-concept-c-desktop-products-1440x900.png
+    ├── 12-concept-c-desktop-approach-1440x900.png
+    ├── 13-hybrid-ab-desktop-homepage-1440x900.png
+    ├── 14-hybrid-ab-mobile-homepage-390x844.png
+    ├── 15-hybrid-ab-desktop-products-1440x900.png
+    └── 16-hybrid-ab-desktop-approach-1440x900.png
 ```
 
 ---
 
-## 2. Reproducible Preview Instructions
+## 2. Complete 16-Mockup Visual Decision Suite
 
-### Option 1: Direct Interactive Browser Inspection (Zero Server Required)
-You can directly open the standalone visual comparison gallery in any modern web browser:
+All 16 high-fidelity mockups have been exported to:
+```text
+/Users/veerrajuamanchi/Downloads/Amanchi-Labs-Visual-Decision-Package-2026-11-23/
+```
+You can open `/Users/veerrajuamanchi/Downloads/Amanchi-Labs-Visual-Decision-Package-2026-11-23/index.html` directly in your browser to view all mockups arranged side-by-side with full-resolution zoom links.
+
+### The 16 Required Mockups Inventory
+
+| # | Mockup File | Concept Direction | Viewport | View / Feature |
+| :--- | :--- | :--- | :--- | :--- |
+| **01** | `01-concept-a-desktop-homepage-1440x900.png` | Concept A (Swiss Minimalism) | 1440×900 | Desktop Homepage (Our Vision) |
+| **02** | `02-concept-a-mobile-homepage-390x844.png` | Concept A (Swiss Minimalism) | 390×844 | Mobile Homepage |
+| **03** | `03-concept-a-desktop-products-1440x900.png` | Concept A (Swiss Minimalism) | 1440×900 | Desktop Products (Spec Cards) |
+| **04** | `04-concept-a-desktop-approach-1440x900.png` | Concept A (Swiss Minimalism) | 1440×900 | Desktop Our Approach (5-Col Map) |
+| **05** | `05-concept-b-desktop-homepage-1440x900.png` | Concept B (Immersive AI Studio) | 1440×900 | Desktop Homepage (Obsidian Void) |
+| **06** | `06-concept-b-mobile-homepage-390x844.png` | Concept B (Immersive AI Studio) | 390×844 | Mobile Homepage (Dock Nav) |
+| **07** | `07-concept-b-desktop-products-1440x900.png` | Concept B (Immersive AI Studio) | 1440×900 | Desktop Products (Dark Vaults) |
+| **08** | `08-concept-b-desktop-approach-1440x900.png` | Concept B (Immersive AI Studio) | 1440×900 | Desktop Our Approach (Glow Conduit) |
+| **09** | `09-concept-c-desktop-homepage-1440x900.png` | Concept C (Human-Centered) | 1440×900 | Desktop Homepage (Limestone Warmth) |
+| **10** | `10-concept-c-mobile-homepage-390x844.png` | Concept C (Human-Centered) | 390×844 | Mobile Homepage |
+| **11** | `11-concept-c-desktop-products-1440x900.png` | Concept C (Human-Centered) | 1440×900 | Desktop Products (Scenario Cards) |
+| **12** | `12-concept-c-desktop-approach-1440x900.png` | Concept C (Human-Centered) | 1440×900 | Desktop Our Approach (Human Narrative)|
+| **13** | `13-hybrid-ab-desktop-homepage-1440x900.png`| ★ Hybrid A+B (Recommended) | 1440×900 | Desktop Homepage (Bento Grid) |
+| **14** | `14-hybrid-ab-mobile-homepage-390x844.png` | ★ Hybrid A+B (Recommended) | 390×844 | Mobile Homepage (Clean Flow) |
+| **15** | `15-hybrid-ab-desktop-products-1440x900.png`| ★ Hybrid A+B (Recommended) | 1440×900 | Desktop Products (Dual Contrast) |
+| **16** | `16-hybrid-ab-desktop-approach-1440x900.png`| ★ Hybrid A+B (Recommended) | 1440×900 | Desktop Our Approach (Interactive Blueprint)|
+
+---
+
+## 3. Reproducible Preview Instructions
+
+### Option 1: Open the Decision Package in Downloads
 ```bash
-# On macOS:
+# Open the visual decision package viewer:
+open /Users/veerrajuamanchi/Downloads/Amanchi-Labs-Visual-Decision-Package-2026-11-23/index.html
+```
+
+### Option 2: Run the Standalone Interactive Prototype
+```bash
+# Open the live interactive gallery directly in your browser:
 open docs/reviews/amanchilabs-ux-transformation/visual-comparison-gallery.html
 ```
-- **Features in the Gallery:**
-  - Switch interactively between **Concept A**, **Concept B**, and **Concept C**.
-  - Simulate viewports with one click: **1440×900 (Desktop)**, **1280×800 (Laptop)**, **1024×768 (Tablet)**, **390×844 (Mobile)**, and **375×812 (Phone)**.
-  - Test live in-place tab switching (`Our Vision`, `Why It Matters`, `Our Approach`, `Products`, `Contact`).
-  - Inspect the **Typography Systems Lab** rendering real Amanchi Labs headlines with Google Fonts.
-  - Test the **Reduced-Motion** accessibility toggle.
 
-### Option 2: Local HTTP Server (Vite Preview or Python)
-```bash
-# Using Python 3:
-python3 -m http.server 8080
-# Open: http://localhost:8080/docs/reviews/amanchilabs-ux-transformation/visual-comparison-gallery.html
-
-# Or using Vite dev server:
-npm run dev
-# Open the review path hosted locally
-```
-
-### Option 3: Re-generating Mockup Screenshots
-To re-run the automated headless Chromium capture at any time:
+### Option 3: Re-Capture All 16 Screenshots
+To re-run the automated Playwright capture at any time:
 ```bash
 node docs/reviews/amanchilabs-ux-transformation/capture-mockups.mjs
 ```
-
----
-
-## 3. High-Fidelity Mockup Gallery
-
-### Concept A: Modern Intelligent Minimalism (Swiss Precision & Architectural Grid)
-*Display: Plus Jakarta Sans · Body: Inter · Canvas: Warm Studio Chalk `#FAFAF8`*
-
-- **Desktop (1440×900):**  
-  ![Concept A Desktop](img/concept-a-1440x900.png)
-- **Mobile (390×844):**  
-  ![Concept A Mobile](img/concept-a-390x844-mobile.png)
-
----
-
-### Concept B: Immersive AI Technology Studio (Layered Depth & Abstract Intelligence)
-*Display: Sora · Body: DM Sans · Canvas: Deep Obsidian `#090D14` with Ambient Glow*
-
-- **Desktop (1440×900):**  
-  ![Concept B Desktop](img/concept-b-1440x900.png)
-- **Mobile (390×844):**  
-  ![Concept B Mobile](img/concept-b-390x844-mobile.png)
-
----
-
-### Concept C: Human-Centered Digital Innovation (Warm Organic Intelligence)
-*Display: Manrope · Body: Inter · Canvas: Warm Limestone `#F6F4EE`*
-
-- **Desktop (1440×900):**  
-  ![Concept C Desktop](img/concept-c-1440x900.png)
-- **Mobile (390×844):**  
-  ![Concept C Mobile](img/concept-c-390x844-mobile.png)
-
----
-
-### Typography Systems Comparison Lab
-*Live rendering of "Private by Design. Local by Default. AI by Choice." and product titles across all candidate pairings:*  
-![Typography Comparison](img/typography-systems-comparison.png)
 
 ---
 
