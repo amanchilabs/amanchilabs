@@ -1,33 +1,66 @@
 /* src/tokens.css */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
+  /* Brand Color System (Derived from approved Amanchi Labs identity) */
   --color-canvas:       #FAFAF8;
-  --color-ink:          #1C1C1C;
-  --color-muted:        #6B6B6B;
-  --color-line:         rgba(0, 0, 0, 0.06);
-  --color-wealth-bg:    #141414;
-  --color-wealth-text:  #F0F0EC;
-  --color-derma-bg:     #F5F0E8;
-  --color-derma-accent: #A8B8A0;
-  --color-derma-heading: #71896A;
-  --color-ownership-ink: #52684B;
-  --color-ownership-copy: #52634A;
-  --color-ownership-bg: #EEF1EA;
-  --color-ownership-border: #ABB9A3;
-  --color-ownership-line: #CBD5C5;
-  --color-ownership-rule: #DCE2D9;
-  --color-accent-bar:   #1C1C1C;
-  --color-chip-bg:      rgba(28, 28, 28, 0.08);
+  --color-surface:      #FFFFFF;
+  --color-ink-primary:  #0F172A;
+  --color-ink:          #0F172A;
+  --color-ink-muted:    #475569;
+  --color-muted:        #475569;
+  --color-ink-subtle:   #64748B;
+  --color-border:       #E2E8F0;
+  --color-line:         #E2E8F0;
+  --color-border-hover: #CBD5E1;
+  --color-forest:       #1E3A2F;
+  --color-teal:         #236861;
+  --color-sage:         #3D6B50;
+  --color-ice-blue:     #0284C7;
+  --color-wealth-vault: #0F172A;
+  --color-wealth-tint:  #F8FAFC;
+  --color-wealth-bg:    #0F172A;
+  --color-wealth-text:  #F8FAFC;
+  --color-derma-tint:   #F4F8F4;
+  --color-chip-bg:      #F1F5F9;
   --color-chip-bg-dark: rgba(255, 255, 255, 0.12);
 
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-ui:      'Inter', system-ui, sans-serif;
+  /* Legacy aliases for backwards compatibility during migration */
+  --color-derma-bg:     #F4F8F4;
+  --color-derma-accent: #3D6B50;
+  --color-derma-heading: #1E3A2F;
+  --color-ownership-ink: #1E3A2F;
+  --color-ownership-copy: #475569;
+  --color-ownership-bg: #F4F8F4;
+  --color-ownership-border: #CBD5E1;
+  --color-ownership-line: #E2E8F0;
+  --color-ownership-rule: #E2E8F0;
+  --color-accent-bar:   #0F172A;
 
-  --sidebar-w: 240px;
+  /* Typographic Families */
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-ui:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'DM Mono', ui-monospace, monospace;
 
-  --transition-panel: opacity 150ms ease-in-out;
-  --transition-hover: color 100ms, opacity 100ms;
+  /* Fluid Typographic Scale */
+  --text-hero:       clamp(48px, 3.8vw, 74px);
+  --text-section-h2: clamp(30px, 2.4vw, 44px);
+  --text-card-h3:    clamp(22px, 1.6vw, 28px);
+  --text-body-lead:  clamp(18px, 1.15vw, 20px);
+  --text-body:       clamp(15.5px, 0.95vw, 17px);
+  --text-nav:        clamp(14.5px, 0.9vw, 16.5px);
+  --text-badge:      clamp(12px, 0.75vw, 13.5px);
+  --text-button:     clamp(15px, 0.9vw, 17px);
+
+  /* Layout & Motion */
+  --header-height:   78px;
+  --sidebar-w:       240px;
+  --ease-snappy:     cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-hover:  160ms;
+  --duration-panel:  200ms;
+  --transition-panel: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-hover: color 160ms, background-color 160ms, border-color 160ms, box-shadow 160ms;
 }
 
 @media (prefers-reduced-motion: reduce) {

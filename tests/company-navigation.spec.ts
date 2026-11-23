@@ -170,7 +170,7 @@ test('metadata, crawler files, fonts and public assets remain valid', async ({ p
   for (const [route] of states) {
     await page.goto('/#' + route)
     await page.evaluate(() => document.fonts.ready)
-    expect(await page.evaluate(() => document.fonts.check('16px Inter') && document.fonts.check('40px "Instrument Serif"'))).toBe(true)
+    expect(await page.evaluate(() => document.fonts.check('16px Inter') && document.fonts.check('32px "Plus Jakarta Sans"'))).toBe(true)
   }
   await expect(page).toHaveTitle('Amanchi Labs | Privacy-First Software Studio')
   expect(JSON.parse(await page.locator('script[type="application/ld+json"]').innerText()).name).toBe('Amanchi Labs')
