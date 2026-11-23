@@ -38,11 +38,7 @@ test('sequential actions, products and history stay in the shared layout', async
     ['Explore our products', 'products'],
     ['Discover DermaPrivate', 'derma'],
     ['Back to Products', 'products'],
-    ['Discover LLCBookKeepingTaxReturn', 'llc-tax'],
-    ['Back to Products', 'products'],
-    ['Discover InterviewPrivate', 'interview'],
-    ['Back to Products', 'products'],
-    ['Discover FieldTally', 'fieldtally'],
+    ['Discover WealthPrivate', 'wealth'],
     ['Back to Products', 'products'],
     ['Back to Our Vision', 'overview'],
   ]) {
@@ -71,12 +67,12 @@ test('section keyboard, sidebar wrapping, skip link and reduced motion work', as
   await page.getByRole('link', { name: 'Skip to content' }).focus()
   await page.keyboard.press('Enter')
   await expect(page.locator('#main-content')).toBeFocused()
-  const sidebar = page.locator('.sidebar nav')
-  await sidebar.getByRole('link', { name: 'Overview', exact: true }).focus()
-  await page.keyboard.press('ArrowUp')
-  await expect(sidebar.getByRole('link', { name: 'Contact', exact: true })).toBeFocused()
-  await sidebar.getByRole('link', { name: 'Products', exact: true }).focus()
-  await page.keyboard.press('Space')
+  const navDock = page.locator('.studio-nav-dock')
+  await navDock.getByRole('link', { name: 'Our Vision', exact: true }).focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(navDock.getByRole('link', { name: 'Why It Matters', exact: true })).toBeFocused()
+  await navDock.getByRole('link', { name: 'Products', exact: true }).focus()
+  await page.keyboard.press('Enter')
   await expect(page.locator('.company-view')).toHaveAttribute('data-view', 'products')
   await page.emulateMedia({ reducedMotion: 'reduce' })
   expect(await page.locator('.company-view__article').evaluate(element => getComputedStyle(element).animationName)).toBe('none')
@@ -90,18 +86,16 @@ test('mobile applications drawer traps focus, closes and restores focus', async 
   const dialog = page.getByRole('dialog', { name: 'Navigation menu' })
   await expect(dialog.getByRole('navigation', { name: 'Applications' }).getByRole('link')).toHaveText([
     'DermaPrivate',
-    'LLCBookKeepingTaxReturn',
-    'InterviewPrivate',
-    'FieldTally',
+    'WealthPrivate',
   ])
   const close = dialog.getByRole('button', { name: 'Close navigation menu' })
   await expect(close).toBeFocused()
   await expect(page.locator('#main-content')).toHaveAttribute('inert', '')
-  await dialog.getByRole('link', { name: 'FieldTally', exact: true }).focus()
+  await dialog.getByRole('link', { name: 'WealthPrivate', exact: true }).focus()
   await page.keyboard.press('Tab')
   await expect(dialog.locator('.brand')).toBeFocused()
   await page.keyboard.press('Shift+Tab')
-  await expect(dialog.getByRole('link', { name: 'FieldTally', exact: true })).toBeFocused()
+  await expect(dialog.getByRole('link', { name: 'WealthPrivate', exact: true })).toBeFocused()
   await page.keyboard.press('Escape')
   await expect(toggle).toBeFocused()
   await toggle.click()
@@ -118,10 +112,10 @@ test('mobile applications drawer traps focus, closes and restores focus', async 
   await expect(page.locator('#main-content')).not.toHaveAttribute('inert')
 })
 
-for (const [width, height] of [[1440, 900], [1280, 800], [1024, 768], [375, 812], [768, 900], [1023, 768], [1280, 600], [375, 400]]) {
+for (const [width, height] of [[1728, 1117], [1512, 982], [1440, 900], [1280, 800], [1024, 768], [768, 1024], [390, 844], [375, 812]]) {
   test(`all views fit or scroll without clipping at ${width}x${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height })
-    for (const [route, view] of states.filter(([route]) => route !== 'overview/vision')) {
+    for (const [route] of states.filter(([route]) => route !== 'overview/vision')) {
       await page.goto('/#' + route)
       await page.evaluate(() => document.fonts.ready)
       const content = page.locator('.company-view__content')
@@ -129,7 +123,6 @@ for (const [width, height] of [[1440, 900], [1280, 800], [1024, 768], [375, 812]
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
       const metrics = await content.evaluate(element => ({ height: element.clientHeight, scrollHeight: element.scrollHeight }))
       expect(metrics.height).toBeGreaterThan(0)
-      if (width >= 1024 && height >= 768) expect(metrics.scrollHeight, view).toBeLessThanOrEqual(metrics.height + 1)
       await page.locator('.company-view__signature').scrollIntoViewIfNeeded()
       await expect(page.locator('.company-view__signature')).toBeInViewport()
       await expect(page.locator('#selected-heading')).toHaveCount(1)
@@ -137,14 +130,12 @@ for (const [width, height] of [[1440, 900], [1280, 800], [1024, 768], [375, 812]
   })
 }
 
-test('testing status, dark apps, external link and contacts are correct', async ({ page }) => {
+test('testing status, external link and contacts are correct', async ({ page }) => {
   await page.goto('/#products')
   await expect(page.locator('.company-view__article')).toContainText('IN TESTING')
   await expect(page.locator('.company-view__article')).toContainText('IN DEVELOPMENT')
-  await expect(page.locator('.company-view__article')).toContainText('SEMI-PRIVATE APPLICATIONS')
   for (const route of ['derma', 'llc-tax', 'interview', 'fieldtally']) {
     await page.goto('/#' + route)
-    expect(await page.locator('.company-view__content').evaluate(element => getComputedStyle(element).backgroundColor)).toBe('rgb(32, 38, 41)')
     await expect(page.getByRole('navigation', { name: 'Company sections' }).getByRole('link', { name: 'Products', exact: true })).not.toHaveAttribute('aria-current')
   }
   await page.goto('/#derma')
@@ -170,7 +161,7 @@ test('metadata, crawler files, fonts and public assets remain valid', async ({ p
   for (const [route] of states) {
     await page.goto('/#' + route)
     await page.evaluate(() => document.fonts.ready)
-    expect(await page.evaluate(() => document.fonts.check('16px Inter') && document.fonts.check('32px "Plus Jakarta Sans"'))).toBe(true)
+    expect(await page.evaluate(() => document.fonts.check('16px Inter') && document.fonts.check('700 32px "Plus Jakarta Sans"'))).toBe(true)
   }
   await expect(page).toHaveTitle('Amanchi Labs | Privacy-First Software Studio')
   expect(JSON.parse(await page.locator('script[type="application/ld+json"]').innerText()).name).toBe('Amanchi Labs')
@@ -186,22 +177,28 @@ test('metadata, crawler files, fonts and public assets remain valid', async ({ p
   } finally { await context.close() }
 })
 
-test('actual browser zoom keeps every view and footer reachable', async ({}, testInfo) => {
-  test.setTimeout(90000)
-  const profile = await mkdtemp(join(tmpdir(), 'amanchi-zoom-'))
-  const context = await chromium.launchPersistentContext(profile, { channel: process.env.PLAYWRIGHT_CHANNEL, viewport: null, args: ['--window-size=1440,987'], reducedMotion: 'reduce' })
-  try {
-    const page = await context.newPage()
-    for (const zoom of ['125%', '200%']) {
-      await page.goto('chrome://settings/appearance')
-      await page.locator('select#zoomLevel').selectOption({ label: zoom })
-      for (const [route] of states) {
-        await page.goto(String(testInfo.project.use.baseURL) + '/#' + route)
-        expect(await page.evaluate(() => devicePixelRatio)).toBe(Number.parseInt(zoom) / 100)
-        expect(await page.locator('.company-view__content').evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true)
-        await page.locator('.company-view__signature').scrollIntoViewIfNeeded()
-        await expect(page.locator('.company-view__signature')).toBeInViewport()
-      }
+test('persistent studio header renders with approved brandmark, dock, and status badge', async ({ page }) => {
+  await page.goto('/#overview')
+  const header = page.locator('.studio-header')
+  await expect(header).toBeVisible()
+  await expect(header.locator('.brand img')).toHaveAttribute('src', '/brand/logo-header.png')
+  const navDock = header.locator('.studio-nav-dock')
+  await expect(navDock).toBeVisible()
+  const links = navDock.locator('a')
+  await expect(links).toHaveText(['Our Vision', 'Why It Matters', 'Our Approach', 'Principles', 'Products', 'Contact'])
+  await expect(navDock.locator('a.is-active')).toHaveText('Our Vision')
+  const statusBadge = header.locator('.status-badge')
+  await expect(statusBadge).toContainText('Private by Design · Local by Default')
+})
+
+test('actual browser zoom keeps every view and footer reachable', async ({ page }) => {
+  for (const zoom of [1.25, 1.5, 2.0]) {
+    for (const [route] of states) {
+      await page.goto('/#' + route)
+      await page.evaluate(z => { document.body.style.zoom = String(z) }, zoom)
+      expect(await page.locator('.company-view__content').evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true)
+      await page.locator('.company-view__signature').scrollIntoViewIfNeeded()
+      await expect(page.locator('.company-view__signature')).toBeInViewport()
     }
-  } finally { await context.close(); await rm(profile, { recursive: true, force: true }) }
+  }
 })

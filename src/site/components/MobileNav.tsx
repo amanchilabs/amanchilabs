@@ -1,21 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import type { KeyboardEvent, SyntheticEvent } from 'react'
 import type { PanelId } from '../hooks/useHashRouter'
 import { Brand } from '../Brand'
 import './MobileNav.css'
 
-type Props = { activePanel: PanelId; navigate: (panel: PanelId) => void }
+type Props = {
+  activePanel: PanelId
+  navigate: (panel: PanelId) => void
+  open: boolean
+  setOpen: (open: boolean) => void
+}
 
-const NAV_ITEMS: { id: PanelId; label: string }[] = [
+// Approved public portfolio
+const APPROVED_APPLICATIONS: { id: PanelId; label: string }[] = [
   { id: 'derma', label: 'DermaPrivate' },
-  { id: 'llc-tax', label: 'LLCBookKeepingTaxReturn' },
-  { id: 'interview', label: 'InterviewPrivate' },
-  { id: 'fieldtally', label: 'FieldTally' },
+  { id: 'wealth' as PanelId, label: 'WealthPrivate' },
 ]
 
-export function MobileNav({ activePanel, navigate }: Props) {
-  const [open, setOpen] = useState(false)
-  const toggleRef = useRef<HTMLButtonElement>(null)
+export function MobileNav({ activePanel, navigate, open, setOpen }: Props) {
   const drawerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -51,19 +53,24 @@ export function MobileNav({ activePanel, navigate }: Props) {
     return () => {
       window.removeEventListener('keydown', onKeyDown)
       main?.removeAttribute('inert')
-      toggleRef.current?.focus()
+      const toggle = document.querySelector<HTMLButtonElement>('.mobile-nav__toggle')
+      toggle?.focus()
     }
-  }, [open])
+  }, [open, setOpen])
 
   // Hash changes can also come from browser back and forward.
-  useEffect(() => { setOpen(false) }, [activePanel])
+  useEffect(() => {
+    setOpen(false)
+  }, [activePanel, setOpen])
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 1023px)')
-    function onWidthChange() { if (!media.matches) setOpen(false) }
+    function onWidthChange() {
+      if (!media.matches) setOpen(false)
+    }
     media.addEventListener('change', onWidthChange)
     return () => media.removeEventListener('change', onWidthChange)
-  }, [])
+  }, [setOpen])
 
   function handleNavClick(event: SyntheticEvent<HTMLAnchorElement>, id: PanelId) {
     event.preventDefault()
@@ -75,48 +82,45 @@ export function MobileNav({ activePanel, navigate }: Props) {
     if (event.key === ' ') handleNavClick(event, id)
   }
 
+  if (!open) return null
+
   return (
-    <>
-      <header className="mobile-nav">
-        <span className="mobile-nav__brand"><Brand /></span>
+    <div
+      ref={drawerRef}
+      className="mobile-drawer"
+      id="mobile-drawer"
+      role="dialog"
+      aria-label="Navigation menu"
+      aria-modal="true"
+    >
+      <div className="mobile-drawer__header">
+        <span className="mobile-nav__brand">
+          <Brand onClick={() => setOpen(false)} />
+        </span>
         <button
-          ref={toggleRef}
-          className="mobile-nav__toggle"
+          className="mobile-drawer__close"
           type="button"
-          aria-label={open ? 'Close applications menu' : 'Open applications menu'}
-          aria-expanded={open}
-          aria-controls="mobile-drawer"
-          onClick={() => setOpen(value => !value)}
+          aria-label="Close navigation menu"
+          onClick={() => setOpen(false)}
         >
-          <span className={`mobile-nav__hamburger${open ? ' is-open' : ''}`} aria-hidden="true">
-            <span /><span /><span />
-          </span>
+          <span aria-hidden="true">&times;</span>
         </button>
-      </header>
-      {open && (
-        <div ref={drawerRef} className="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Navigation menu" aria-modal="true">
-          <div className="mobile-drawer__header">
-            <span className="mobile-nav__brand"><Brand onClick={() => setOpen(false)} /></span>
-            <button className="mobile-drawer__close" type="button" aria-label="Close navigation menu" onClick={() => setOpen(false)}>
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <nav aria-label="Applications">
-            {NAV_ITEMS.map(({ id, label }) => (
-              <a
-                key={id}
-                href={'#' + id}
-                className={`mobile-drawer__item${activePanel === id ? ' is-active' : ''}`}
-                aria-current={activePanel === id ? 'page' : undefined}
-                onClick={event => handleNavClick(event, id)}
-                onKeyDown={event => handleNavKeyDown(event, id)}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
-    </>
+      </div>
+
+      <nav aria-label="Applications" className="mobile-drawer__nav">
+        {APPROVED_APPLICATIONS.map(({ id, label }) => (
+          <a
+            key={id}
+            href={'#' + id}
+            className={`mobile-drawer__item${activePanel === id ? ' is-active' : ''}`}
+            aria-current={activePanel === id ? 'page' : undefined}
+            onClick={event => handleNavClick(event, id)}
+            onKeyDown={event => handleNavKeyDown(event, id)}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+    </div>
   )
 }

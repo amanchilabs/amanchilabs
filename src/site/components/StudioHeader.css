@@ -1,0 +1,124 @@
+/* src/site/components/StudioHeader.css */
+
+.studio-header {
+  width: 100%;
+  height: var(--header-height, 78px);
+  padding: 0 clamp(20px, 3vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.studio-header__brand {
+  display: flex;
+  align-items: center;
+}
+
+.studio-header__brand .brand img {
+  width: 180px;
+  height: auto;
+}
+
+.studio-nav-dock {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-chip-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.studio-nav-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: var(--text-nav);
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  padding: 8px clamp(10px, 1.1vw, 18px);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all var(--duration-hover) var(--ease-snappy);
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.studio-nav-btn:hover {
+  color: var(--color-ink-primary);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.studio-nav-btn.is-active {
+  background: var(--color-surface);
+  color: var(--color-ink-primary);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.studio-nav-btn:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 2px;
+}
+
+.studio-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-badge, 12.5px);
+  font-weight: 500;
+  color: var(--color-forest);
+  background: rgba(30, 58, 47, 0.07);
+  border: 1px solid rgba(30, 58, 47, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.studio-header__mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1023px) {
+  .studio-header {
+    height: 64px;
+    padding: 0 16px;
+  }
+  .studio-nav-dock,
+  .studio-header-meta {
+    display: none;
+  }
+  .studio-header__mobile-toggle {
+    display: flex;
+  }
+}
