@@ -1,0 +1,553 @@
+{
+  "metricsReport": [
+    {
+      "item": {
+        "filename": "01-refined-concept-a-desktop-homepage-1728x1117.png",
+        "width": 1728,
+        "height": 1117,
+        "section": "vision",
+        "desc": "Desktop Homepage 1728x1117 (16\" MacBook Pro)"
+      },
+      "metrics": {
+        "viewportWidth": 1728,
+        "viewportHeight": 1117,
+        "heroHeadline": {
+          "fontSize": "65.664px",
+          "lineHeight": "69.6038px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 551.96875,
+          "height": 208.78125
+        },
+        "sectionH2": {
+          "fontSize": "41.472px",
+          "lineHeight": "47.2781px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 898.578125,
+          "height": 47.265625
+        },
+        "cardH3": {
+          "fontSize": "27.648px",
+          "lineHeight": "44.2368px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 366.1875,
+          "height": 44.21875
+        },
+        "bodyLead": {
+          "fontSize": "19.872px",
+          "lineHeight": "32.7888px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 551.96875,
+          "height": 131.125
+        },
+        "navBtn": {
+          "fontSize": "15.552px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 116.5625,
+          "height": 35
+        },
+        "promise": {
+          "fontSize": "24.192px",
+          "lineHeight": "38.7072px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 489.96875,
+          "height": 38.6875
+        },
+        "leftColWidth": 691.1875,
+        "rightColWidth": 1036.796875,
+        "totalUtilizedWidth": 1727.984375,
+        "screenUtilizationPct": 100
+      }
+    },
+    {
+      "item": {
+        "filename": "02-refined-concept-a-laptop-homepage-1280x800.png",
+        "width": 1280,
+        "height": 800,
+        "section": "vision",
+        "desc": "Laptop Homepage 1280x800"
+      },
+      "metrics": {
+        "viewportWidth": 1280,
+        "viewportHeight": 800,
+        "heroHeadline": {
+          "fontSize": "48.64px",
+          "lineHeight": "51.5584px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 408.625,
+          "height": 154.640625
+        },
+        "sectionH2": {
+          "fontSize": "30.72px",
+          "lineHeight": "35.0208px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 665.625,
+          "height": 35.015625
+        },
+        "cardH3": {
+          "fontSize": "22px",
+          "lineHeight": "35.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 267.625,
+          "height": 35.1875
+        },
+        "bodyLead": {
+          "fontSize": "18px",
+          "lineHeight": "29.7px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 408.625,
+          "height": 148.4375
+        },
+        "navBtn": {
+          "fontSize": "14.5px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 102.109375,
+          "height": 34
+        },
+        "promise": {
+          "fontSize": "20px",
+          "lineHeight": "32px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 360.5625,
+          "height": 32
+        },
+        "leftColWidth": 512,
+        "rightColWidth": 768,
+        "totalUtilizedWidth": 1280,
+        "screenUtilizationPct": 100
+      }
+    },
+    {
+      "item": {
+        "filename": "03-refined-concept-a-mobile-homepage-390x844.png",
+        "width": 390,
+        "height": 844,
+        "section": "vision",
+        "desc": "Mobile Homepage 390x844"
+      },
+      "metrics": {
+        "viewportWidth": 390,
+        "viewportHeight": 844,
+        "heroHeadline": {
+          "fontSize": "48px",
+          "lineHeight": "50.88px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 350,
+          "height": 254.375
+        },
+        "sectionH2": {
+          "fontSize": "30px",
+          "lineHeight": "34.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 350,
+          "height": 68.375
+        },
+        "cardH3": {
+          "fontSize": "22px",
+          "lineHeight": "35.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 300,
+          "height": 35.1875
+        },
+        "bodyLead": {
+          "fontSize": "18px",
+          "lineHeight": "29.7px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 350,
+          "height": 148.4375
+        },
+        "navBtn": {
+          "fontSize": "14.5px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 95.390625,
+          "height": 34
+        },
+        "promise": {
+          "fontSize": "20px",
+          "lineHeight": "32px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 308,
+          "height": 64
+        },
+        "leftColWidth": 390,
+        "rightColWidth": 390,
+        "totalUtilizedWidth": 780,
+        "screenUtilizationPct": 200
+      }
+    },
+    {
+      "item": {
+        "filename": "04-refined-concept-a-desktop-why-1728x1117.png",
+        "width": 1728,
+        "height": 1117,
+        "section": "why",
+        "desc": "Desktop Why It Matters 1728x1117"
+      },
+      "metrics": {
+        "viewportWidth": 1728,
+        "viewportHeight": 1117,
+        "heroHeadline": {
+          "fontSize": "65.664px",
+          "lineHeight": "69.6038px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 551.96875,
+          "height": 208.78125
+        },
+        "sectionH2": {
+          "fontSize": "41.472px",
+          "lineHeight": "47.2781px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "cardH3": {
+          "fontSize": "27.648px",
+          "lineHeight": "44.2368px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "bodyLead": {
+          "fontSize": "19.872px",
+          "lineHeight": "32.7888px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 551.96875,
+          "height": 131.125
+        },
+        "navBtn": {
+          "fontSize": "15.552px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 116.5625,
+          "height": 35
+        },
+        "promise": {
+          "fontSize": "24.192px",
+          "lineHeight": "38.7072px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 489.96875,
+          "height": 38.6875
+        },
+        "leftColWidth": 691.1875,
+        "rightColWidth": 1036.796875,
+        "totalUtilizedWidth": 1727.984375,
+        "screenUtilizationPct": 100
+      }
+    },
+    {
+      "item": {
+        "filename": "05-refined-concept-a-desktop-approach-1728x1117.png",
+        "width": 1728,
+        "height": 1117,
+        "section": "approach",
+        "desc": "Desktop Our Approach 1728x1117"
+      },
+      "metrics": {
+        "viewportWidth": 1728,
+        "viewportHeight": 1117,
+        "heroHeadline": {
+          "fontSize": "65.664px",
+          "lineHeight": "69.6038px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 551.96875,
+          "height": 208.78125
+        },
+        "sectionH2": {
+          "fontSize": "41.472px",
+          "lineHeight": "47.2781px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "cardH3": {
+          "fontSize": "27.648px",
+          "lineHeight": "44.2368px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "bodyLead": {
+          "fontSize": "19.872px",
+          "lineHeight": "32.7888px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 551.96875,
+          "height": 131.125
+        },
+        "navBtn": {
+          "fontSize": "15.552px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 116.5625,
+          "height": 35
+        },
+        "promise": {
+          "fontSize": "24.192px",
+          "lineHeight": "38.7072px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 489.96875,
+          "height": 38.6875
+        },
+        "leftColWidth": 691.1875,
+        "rightColWidth": 1036.796875,
+        "totalUtilizedWidth": 1727.984375,
+        "screenUtilizationPct": 100
+      }
+    },
+    {
+      "item": {
+        "filename": "06-refined-concept-a-desktop-products-1728x1117.png",
+        "width": 1728,
+        "height": 1117,
+        "section": "products",
+        "desc": "Desktop Products 1728x1117"
+      },
+      "metrics": {
+        "viewportWidth": 1728,
+        "viewportHeight": 1117,
+        "heroHeadline": {
+          "fontSize": "65.664px",
+          "lineHeight": "69.6038px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 551.96875,
+          "height": 208.78125
+        },
+        "sectionH2": {
+          "fontSize": "41.472px",
+          "lineHeight": "47.2781px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "cardH3": {
+          "fontSize": "27.648px",
+          "lineHeight": "44.2368px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "bodyLead": {
+          "fontSize": "19.872px",
+          "lineHeight": "32.7888px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 551.96875,
+          "height": 131.125
+        },
+        "navBtn": {
+          "fontSize": "15.552px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 116.609375,
+          "height": 35
+        },
+        "promise": {
+          "fontSize": "24.192px",
+          "lineHeight": "38.7072px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 489.96875,
+          "height": 38.6875
+        },
+        "leftColWidth": 691.1875,
+        "rightColWidth": 1036.796875,
+        "totalUtilizedWidth": 1727.984375,
+        "screenUtilizationPct": 100
+      }
+    },
+    {
+      "item": {
+        "filename": "07-refined-concept-a-mobile-products-390x844.png",
+        "width": 390,
+        "height": 844,
+        "section": "products",
+        "desc": "Mobile Products 390x844"
+      },
+      "metrics": {
+        "viewportWidth": 390,
+        "viewportHeight": 844,
+        "heroHeadline": {
+          "fontSize": "48px",
+          "lineHeight": "50.88px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 350,
+          "height": 254.375
+        },
+        "sectionH2": {
+          "fontSize": "30px",
+          "lineHeight": "34.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "cardH3": {
+          "fontSize": "22px",
+          "lineHeight": "35.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "bodyLead": {
+          "fontSize": "18px",
+          "lineHeight": "29.7px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 350,
+          "height": 148.4375
+        },
+        "navBtn": {
+          "fontSize": "14.5px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 95.390625,
+          "height": 34
+        },
+        "promise": {
+          "fontSize": "20px",
+          "lineHeight": "32px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 308,
+          "height": 64
+        },
+        "leftColWidth": 390,
+        "rightColWidth": 390,
+        "totalUtilizedWidth": 780,
+        "screenUtilizationPct": 200
+      }
+    },
+    {
+      "item": {
+        "filename": "08-refined-concept-a-mobile-approach-390x844.png",
+        "width": 390,
+        "height": 844,
+        "section": "approach",
+        "desc": "Mobile Our Approach 390x844"
+      },
+      "metrics": {
+        "viewportWidth": 390,
+        "viewportHeight": 844,
+        "heroHeadline": {
+          "fontSize": "48px",
+          "lineHeight": "50.88px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 350,
+          "height": 254.375
+        },
+        "sectionH2": {
+          "fontSize": "30px",
+          "lineHeight": "34.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "cardH3": {
+          "fontSize": "22px",
+          "lineHeight": "35.2px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 0,
+          "height": 0
+        },
+        "bodyLead": {
+          "fontSize": "18px",
+          "lineHeight": "29.7px",
+          "fontWeight": "400",
+          "fontFamily": "Inter",
+          "width": 350,
+          "height": 148.4375
+        },
+        "navBtn": {
+          "fontSize": "14.5px",
+          "lineHeight": "normal",
+          "fontWeight": "600",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 95.390625,
+          "height": 34
+        },
+        "promise": {
+          "fontSize": "20px",
+          "lineHeight": "32px",
+          "fontWeight": "800",
+          "fontFamily": "\"Plus Jakarta Sans\"",
+          "width": 308,
+          "height": 64
+        },
+        "leftColWidth": 390,
+        "rightColWidth": 390,
+        "totalUtilizedWidth": 780,
+        "screenUtilizationPct": 200
+      }
+    }
+  ],
+  "zoomResults": [
+    {
+      "zoom": "125%",
+      "result": {
+        "scrollWidth": 1728,
+        "clientWidth": 1728,
+        "hasHorizontalScroll": false,
+        "status": "PASS: Clean Reflow"
+      }
+    },
+    {
+      "zoom": "150%",
+      "result": {
+        "scrollWidth": 1728,
+        "clientWidth": 1728,
+        "hasHorizontalScroll": false,
+        "status": "PASS: Clean Reflow"
+      }
+    },
+    {
+      "zoom": "200%",
+      "result": {
+        "scrollWidth": 1728,
+        "clientWidth": 1728,
+        "hasHorizontalScroll": false,
+        "status": "PASS: Clean Reflow"
+      }
+    }
+  ]
+}
